@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
-        <title>Sanjeev</title>
+        <title>Sanjeev Shah</title>
         <meta name="description" content="Welcome to my portfolio website built with Next.js!" />
       </Head>
       <body
