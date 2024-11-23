@@ -2,7 +2,7 @@
 import emailjs from '@emailjs/browser';
 
 import { useEffect, useState } from 'react';
-import { BackgroundLines } from './ui/background-lines';
+// import { BackgroundLines } from './ui/background-lines';
 const Contact = () => {
   const [sent,setSent] = useState(false);
   const [error, setError] = useState<Error | null>(null);
@@ -38,8 +38,8 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact-me" className="relative z-40 py-24 pt-16">
-      <BackgroundLines className="min-h-screen max-w-lg mx-auto px-5">
+    <section id="contact-me" className="relative border-t-2 border-b-2 py-24 pb-0 pt-16 bg-black bg-[linear-gradient(to_right,rgba(68,68,68,0.5)_1px,transparent_1px),linear-gradient(to_bottom,rgba(68,68,68,0.5)_1px,transparent_1px)] bg-[size:40px_40px] ">
+      <div className="min-h-screen max-w-lg mx-auto px-5 ">
         <h2 className="text-4xl font-mono mb-8 text-purple-500 hover:text-purple-600 transform hover:scale-110 transition-transform duration-300 text-center">
           Contact Me!</h2>
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -82,7 +82,7 @@ const Contact = () => {
         </form>
         {sent && <p className="mt-4 text-lg text-green-600">Message sent successfully!</p>}
         {error && <p className="mt-4 text-lg text-red-600">Email not sent.</p>}
-      </BackgroundLines>
+      </div>
     </section>
   );
 };
