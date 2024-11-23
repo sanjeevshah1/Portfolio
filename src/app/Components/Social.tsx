@@ -41,7 +41,7 @@ const SocialLinks = () => {
           {/* Instagram Card */}
           <SocialCard 
             name={"Instagram"}
-            url={"https://instagram.com/your-profile"} 
+            url={"https://www.instagram.com/sanjeev_shah__/"} 
             description="Follow for photos, stories, and visual inspirations" 
             containerDesign="group relative p-6 bg-gray-800/50 rounded-2xl backdrop-blur-sm border border-gray-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
             backgroundGradient="absolute inset-0 bg-gradient-to-br  from-purple-500/5 to-pink-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"
@@ -51,7 +51,7 @@ const SocialLinks = () => {
           {/* LinkedIn Card */}
           <SocialCard 
             name={"Linkedin"}
-            url={"https://linkedin.com/your-username"} 
+            url={"https://np.linkedin.com/in/sanjeev-sah-b354b9210"} 
             description="Connect professionally and explore my career journey" 
             containerDesign="group relative p-6  bg-gray-800/50 rounded-2xl backdrop-blur-sm border border-gray-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1" 
             backgroundGradient="absolute inset-0 bg-gradient-to-br from-sky-500/5 to-blue-600/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"
@@ -61,7 +61,7 @@ const SocialLinks = () => {
           
           <SocialCard 
             name={"Github"}
-            url={"https://github.com/your-username"} 
+            url={"https://github.com/sanjeevshah1"} 
             description="Explore my open source projects and contributions" 
             containerDesign="group relative p-6 bg-gray-800/50 rounded-2xl backdrop-blur-sm border border-gray-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1" 
             backgroundGradient="absolute inset-0 bg-gradient-to-br from-sky-500/5 to-blue-600/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"

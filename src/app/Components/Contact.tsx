@@ -40,7 +40,7 @@ const Contact = () => {
   return (
     <section id="contact-me" className="relative z-40 py-24 pt-16">
       <BackgroundLines className="min-h-screen max-w-lg mx-auto px-5">
-        <h2 className="text-5xl font-mono mb-8 text-purple-500 hover:text-purple-600 transform hover:scale-110 transition-transform duration-300 text-center">
+        <h2 className="text-4xl font-mono mb-8 text-purple-500 hover:text-purple-600 transform hover:scale-110 transition-transform duration-300 text-center">
           Contact Me!</h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className=''>
