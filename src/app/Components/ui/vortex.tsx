@@ -155,7 +155,10 @@ export const Vortex = (props: VortexProps) => {
     particleProps[i4] = vy;
     particleProps[i5] = life;
 
-    (checkBounds(x, y, canvas) || life > ttl) && initParticle(i);
+    if (checkBounds(x, y, canvas) || life > ttl) {
+      initParticle(i);
+    }
+    
   };
 
   const drawParticle = (

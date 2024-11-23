@@ -18,7 +18,7 @@ const SocialLinks = () => {
         {/* Hero section */}
         <div className="text-center space-y-8">
           <h1 className="text-4xl md:text-6xl font-bold text-purple-500 hover:text-purple-600 font-mono transform hover:scale-110 transition-transform duration-300">
-            Let`&apos;`s Connect!
+            Let&apos;s Connect!
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 hover:text-gray-100  max-w-2xl mx-auto transform hover:scale-105 transition-transform duration-300">
             Join me on social media to stay updated with my latest projects, thoughts, and adventures
