@@ -5,7 +5,9 @@ const useFetch = (url: string): [SiteType[], boolean, string | null] => {
   const [error, setError] = useState<string | null>(null);
   const [sites, setSites] = useState<SiteType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const NETLIFY_ACCESS_TOKEN = process.env.NEXT_PUBLIC_NETLIFY_TOKEN;
+  const NETLIFY_ACCESS_TOKEN = process.env.NEXT_PUBLIC_NETLIFY_ACCESS_TOKEN;
+ 
+
 
   useEffect(() => {
     const fetchData = async () => {
