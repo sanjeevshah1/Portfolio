@@ -62,7 +62,7 @@ const Header = () => {
         </li>
         <li>
           <button
-            onClick={() => scrollToSection('contact')}
+            onClick={() => scrollToSection('contact-me')}
              className="text-purple-500 hover:text-purple-600 transform hover:scale-110 transition-transform duration-300"
           >
             CONTACT ME
