@@ -31,10 +31,10 @@ const Home = () => {
           </div>
           {/* Text Content */}
           <div className="md:col-start-1 md:row-start-1 flex justify-center md:justify-start mt-6 md:mt-0 lg:mt-0">
-            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-6 sm:p-7 md:p-8 max-w-fit shadow-lg text-center md:text-left">
+            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-6 sm:p-7 md:p-8 max-w-fit shadow-lg text-center md:text-left md:pr-20" >
               <p className="text-base text-violet-500  sm:text-lg">Hi! It&apos;s me,</p>
               <h1 className="text-3xl text-white font-bold italic sm:text-3xl md:text-4xl tracking-wider my-2 sm:my-3">
-                Sanjeev Kumar Sah
+                Sanjeev Shah
               </h1>
               <p className="text-base text-violet-500  sm:text-lg md:text-lg leading-relaxed">
                 Web Developer & Problem Solver
