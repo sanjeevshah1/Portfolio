@@ -1,6 +1,14 @@
 // import { link } from "fs";
 import { ExternalLink } from "lucide-react";
-const SocialCard = ({name,url,description,containerDesign,backgroundGradient,linkDesign} : any) => {
+const SocialCard = ({name,url,description,containerDesign,backgroundGradient,linkDesign} : {
+  name: string;
+  url: string;
+  description: string;
+  containerDesign: string;
+  backgroundGradient: string;
+  linkDesign: string;
+
+}) => {
   return (
     // {/* GitHub Card */}
     <div className={containerDesign}>

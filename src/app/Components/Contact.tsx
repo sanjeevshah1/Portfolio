@@ -5,27 +5,28 @@ import { useEffect, useState } from 'react';
 import { BackgroundLines } from './ui/background-lines';
 const Contact = () => {
   const [sent,setSent] = useState(false);
-  const [error, setError] = useState<any>(null);
+  const [error, setError] = useState<Error | null>(null);
   useEffect(() => {
     emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!);
   }, []);
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.target as HTMLFormElement;
     try {
       // Send the form data to emailjs
       await emailjs.sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        e.target
+        form
       );
       alert('Message sent successfully!');
       setSent(true);
-      e.target.reset();
+      form.reset();
     } catch (error) {
-      setError(error);
       // Check if error is an object and has a message property
       if (error instanceof Error) {
+        setError(error);
         console.error('Error sending email:', error.message);
       } else {
         console.error('Error sending email:', error);
