@@ -31,7 +31,7 @@ const SocialLinks = () => {
           {/* Facebook Card */}
           <SocialCard 
             name={"Facebook"}
-            url={"https://facebook.com/your-profile"} 
+            url={"https://www.facebook.com/Sanjeev073.sah/"} 
             description="Connect with me for daily updates and behind-the-scenes content" 
             containerDesign="group relative p-6  bg-gray-800/50 rounded-2xl backdrop-blur-sm border border-gray-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
             backgroundGradient="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-blue-600/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"
