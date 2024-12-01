@@ -20,7 +20,6 @@ const Contact = () => {
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         form
       );
-      alert('Message sent successfully!');
       setSent(true);
       form.reset();
     } catch (error) {
