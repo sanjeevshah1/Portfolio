@@ -108,7 +108,7 @@ export type NetlifySiteType = {
   interface Deployment {
     alias: string[];
     aliasAssigned: number;
-    builds: any[];
+    builds: string[];
     createdAt: number;
     createdIn: string;
     creator: {
@@ -225,7 +225,7 @@ export interface Project {
       sourceless: boolean;
       createdAt: number;
       updatedAt: number;
-      deployHooks: any[];
+      deployHooks: string[];
     };
     latestDeployments: Deployment[];
     targets: {
