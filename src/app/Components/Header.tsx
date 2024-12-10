@@ -54,6 +54,14 @@ const Header = () => {
         </li>
         <li>
           <button
+            onClick={() => scrollToSection('certificates')}
+             className="text-purple-500 hover:text-purple-600 transform hover:scale-110 transition-transform duration-300"
+          >
+            CERTIFICATES
+          </button>
+        </li>
+        <li>
+          <button
             onClick={() => scrollToSection('projects')}
             className="text-purple-500 hover:text-purple-600 transform hover:scale-110 transition-transform duration-300"
           >

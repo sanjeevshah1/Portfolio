@@ -1,4 +1,3 @@
-// 'use client';
 import React from 'react';
 import Header from './Components/Header';
 import Home from './Components/Home';
@@ -7,7 +6,7 @@ import Contact from './Components/Contact';
 import Social from './Components/Social';
 import Footer from './Components/Footer';
 import Projects from './Components/Projects';
-
+import CertificatesPage from './Components/Certificates';
 const Portfolio = () => {
   return (
     // <div className="min-h-screen max-w-screen overflow-hidden  text-white font-cursive bg-gradient-to-r from-[#78776D] via-[#958F7F] to-[#C6AE94]">
@@ -22,6 +21,10 @@ const Portfolio = () => {
       {/* About Section */}
       <About />   
 
+      
+      {/* Certificates Section */}
+      <CertificatesPage />
+      
       {/* Projects Section */}
       <Projects />
 

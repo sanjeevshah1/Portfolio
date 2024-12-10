@@ -61,7 +61,7 @@ async function fetchSites(): Promise<ProjectType[]> {
       }
     }) : []
   );
-
+  VercelProjects.reverse();
   return [...VercelProjects, ...NetlifyProjects];
 }
 
