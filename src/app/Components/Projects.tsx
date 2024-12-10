@@ -26,7 +26,7 @@ async function fetchSites(): Promise<ProjectType[]> {
   })
   const NetlifySites: NetlifySiteType[] = await netlifyResponse.json();
   const VercelSites: VercelProjectsResponse = await vercelResponse.json();
-
+  if(!VercelSites) console.log("Vercel Sites not found");
   const NetlifyProjects = await Promise.all(
     NetlifySites.map(async (site) => {
       const languages = await fetchGit(site.build_settings.repo_path);
