@@ -21,7 +21,7 @@ const CertificatesPage = () => {
       date: "April 24, 2024",
       description: "An online non-credit course authorized by Meta and offered through Coursera.",
       skills: ["React", "Application Development", "Web Application", "Front-End Web Development"],
-      image: "/certificates/coursera_react.jpg"
+      image: "/Certificates/coursera_react.jpg"
     },
     {
       title: "Hands-on Introduction to Linux Commands and Shell Scripting",
@@ -29,7 +29,7 @@ const CertificatesPage = () => {
       date: "Jan 18, 2024",
       description: "An online non-credit course authorized by IBM and offered through Coursera.",
       skills: ["Linux", "Linux Commands", "Shell Scripting", "Bash (Unix Shell)", "Extract Transform and Load (ETL)"],
-      image: "/certificates/coursera_linux.jpg"
+      image: "/Certificates/coursera_linux.jpg"
     },
     {
       title: "Programming with JavaScript",
@@ -37,7 +37,7 @@ const CertificatesPage = () => {
       date: "January 17, 2024",
       description: "An online non-credit course authorized by Meta and offered through Coursera.",
       skills: ["JavaScript", "Test-Driven Development", "Object-Oriented Programming (OOP)"],
-      image: "/certificates/coursera_javascript.jpg"
+      image: "/Certificates/coursera_javascript.jpg"
     },
     {
       title: "Advanced React",
@@ -45,7 +45,7 @@ const CertificatesPage = () => {
       date: "September 11, 2024",
       description: "A comprehensive course on advanced React patterns and techniques.",
       skills: ["React", "React Router"],
-      image: "/certificates/scrimba_advanced_react.jpg"
+      image: "/Certificates/scrimba_advanced_react.jpg"
     },
     {
       title: "Learn TypeScript",
@@ -53,7 +53,7 @@ const CertificatesPage = () => {
       date: "September 11, 2024",
       description: "A course covering TypeScript for JavaScript developers.",
       skills: ["TypeScript"],
-      image: "/certificates/scrimba_learn_typescript.jpg"
+      image: "/Certificates/scrimba_learn_typescript.jpg"
     },
     {
       title: "Learn Tailwind CSS",
@@ -61,7 +61,7 @@ const CertificatesPage = () => {
       date: "September 11, 2024",
       description: "A course focused on building modern UIs with Tailwind CSS.",
       skills: ["Tailwind CSS"],
-      image: "/certificates/scrimba_tailwind_css.jpg"
+      image: "/Certificates/scrimba_tailwind_css.jpg"
     }
   ];
 
