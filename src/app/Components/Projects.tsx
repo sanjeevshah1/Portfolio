@@ -43,8 +43,7 @@ async function fetchSites(): Promise<ProjectType[]> {
   const apiKey = process.env.NEXT_PUBLIC_SCREENSHOTMACHINE_CUSTOMERKEY;
   const screenshotApiUrl = 'https://api.screenshotmachine.com';
   const VercelProjects = await Promise.all(
-
-    VercelSites.projects.map(async (project) =>{
+    VercelSites.pagination ? VercelSites.projects?.map(async (project) =>{
       const languages = await fetchGit(`${project.link.org}/${project.link.repo}`)
       console.log(languages);
       console.log(`https://github.com/${project.link.org}/${project.link.repo}`)
@@ -58,7 +57,7 @@ async function fetchSites(): Promise<ProjectType[]> {
         repoUrl: `https://github.com/${project.link.org}/${project.link.repo}`,
         languages,
       }
-    })
+    }) : []
   );
 
   return [...VercelProjects, ...NetlifyProjects];
