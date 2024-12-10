@@ -1,6 +1,7 @@
 import { use, Suspense } from "react";
 import ProjectCard from "./ProjectCard";
-import { ProjectType, SiteType, LanguagesType } from "../types";
+import { ProjectType, NetlifySiteType, LanguagesType, VercelProjectsResponse } from "../types";
+
 
 async function fetchGit(repoPath: string): Promise<LanguagesType> {
   if (!repoPath) return {};
@@ -10,17 +11,24 @@ async function fetchGit(repoPath: string): Promise<LanguagesType> {
 
 async function fetchSites(): Promise<ProjectType[]> {
   const NETLIFY_ACCESS_TOKEN = process.env.NEXT_PUBLIC_NETLIFY_ACCESS_TOKEN;
-
+  const VERCEL_ACCESS_TOKEN = process.env.NEXT_PUBLIC_VERCEL_ACCESS_TOKEN;
   const netlifyResponse =  await fetch("https://api.netlify.com/api/v1/sites", {
           headers: {
             Authorization: `Bearer ${NETLIFY_ACCESS_TOKEN}`,
           },
         });
 
-  const sites: SiteType[] = await netlifyResponse.json();
+  const vercelResponse = await fetch("https://api.vercel.com/v6/projects",{
+          "headers": {
+            "Authorization": `Bearer ${VERCEL_ACCESS_TOKEN}`
+        },
+    "method": "get"
+  })
+  const NetlifySites: NetlifySiteType[] = await netlifyResponse.json();
+  const VercelSites: VercelProjectsResponse = await vercelResponse.json();
 
-  const projects = await Promise.all(
-    sites.map(async (site) => {
+  const NetlifyProjects = await Promise.all(
+    NetlifySites.map(async (site) => {
       const languages = await fetchGit(site.build_settings.repo_path);
       return {
         name: site.name,
@@ -31,8 +39,29 @@ async function fetchSites(): Promise<ProjectType[]> {
       };
     })
   );
+ 
+  const apiKey = process.env.NEXT_PUBLIC_SCREENSHOTMACHINE_CUSTOMERKEY;
+  const screenshotApiUrl = 'https://api.screenshotmachine.com';
+  const VercelProjects = await Promise.all(
 
-  return projects;
+    VercelSites.projects.map(async (project) =>{
+      const languages = await fetchGit(`${project.link.org}/${project.link.repo}`)
+      console.log(languages);
+      console.log(`https://github.com/${project.link.org}/${project.link.repo}`)
+      const deployedUrl = `https://${project.alias[0].deployment.alias[0]}`;
+
+    const screenshotUrl = `${screenshotApiUrl}?key=${apiKey}&url=${encodeURIComponent(deployedUrl)}&dimension=1024x768`;
+      return {
+        name: project.name,
+        url: `https://${project.alias[0].deployment.alias[0]}`,
+        screenshot_url: screenshotUrl, 
+        repoUrl: `https://github.com/${project.link.org}/${project.link.repo}`,
+        languages,
+      }
+    })
+  );
+
+  return [...VercelProjects, ...NetlifyProjects];
 }
 
 const NetlifySites = () => {

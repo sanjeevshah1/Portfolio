@@ -1,4 +1,4 @@
-export type SiteType = {
+export type NetlifySiteType = {
     id: string;
     state: string;
     plan: string;
@@ -104,3 +104,141 @@ export type SiteType = {
     languages: LanguagesType;
     repoUrl: string;
   };
+
+  interface Deployment {
+    alias: string[];
+    aliasAssigned: number;
+    builds: any[];
+    createdAt: number;
+    createdIn: string;
+    creator: {
+      uid: string;
+      email: string;
+      username: string;
+      githubLogin: string;
+    };
+    deploymentHostname: string;
+    forced: boolean;
+    id: string;
+    meta: {
+      githubCommitAuthorName: string;
+      githubCommitMessage: string;
+      githubCommitOrg: string;
+      githubCommitRef: string;
+      githubCommitRepo: string;
+      githubCommitSha: string;
+      githubDeployment: string;
+      githubOrg: string;
+      githubRepo: string;
+      githubRepoOwnerType: string;
+      githubCommitRepoId: string;
+      githubRepoId: string;
+      githubRepoVisibility: string;
+      githubCommitAuthorLogin: string;
+      branchAlias: string;
+    };
+    name: string;
+    plan: string;
+    private: boolean;
+    readyState: string;
+    target: string;
+    teamId: string;
+    type: string;
+    url: string;
+    userId: string;
+    withCache: boolean;
+  }
+  
+  interface Environment {
+    target: string[];
+    configurationId: string | null;
+    id: string;
+    key: string;
+    createdAt: number;
+    updatedAt: number;
+    createdBy: string;
+    updatedBy: string | null;
+    type: string;
+    value: string;
+  }
+  
+export interface Project {
+    accountId: string;
+    alias: {
+      configuredBy: string;
+      configuredChangedAt: number;
+      createdAt: number;
+      deployment: Deployment;
+      domain: string;
+      environment: string;
+      gitBranch: string | null;
+      redirect: string | null;
+      redirectStatusCode: number | null;
+      target: string;
+    }[];
+    autoExposeSystemEnvs: boolean;
+    autoAssignCustomDomains: boolean;
+    autoAssignCustomDomainsUpdatedBy: string;
+    buildCommand: string | null;
+    createdAt: number;
+    devCommand: string | null;
+    directoryListing: boolean;
+    env: Environment[];
+    framework: string;
+    gitForkProtection: boolean;
+    id: string;
+    installCommand: string;
+    name: string;
+    nodeVersion: string;
+    outputDirectory: string | null;
+    publicSource: string | null;
+    resourceConfig: {
+      functionDefaultMemoryType: string;
+    };
+    rootDirectory: string | null;
+    serverlessFunctionRegion: string;
+    sourceFilesOutsideRootDirectory: boolean;
+    speedInsights: {
+      id: string;
+      hasData: boolean;
+    };
+    ssoProtection: {
+      deploymentType: string;
+    };
+    updatedAt: number;
+    live: boolean;
+    gitComments: {
+      onCommit: boolean;
+      onPullRequest: boolean;
+    };
+    webAnalytics: {
+      id: string;
+    };
+    link: {
+      type: string;
+      repo: string;
+      repoId: number;
+      org: string;
+      repoOwnerId: number;
+      gitCredentialId: string;
+      productionBranch: string;
+      sourceless: boolean;
+      createdAt: number;
+      updatedAt: number;
+      deployHooks: any[];
+    };
+    latestDeployments: Deployment[];
+    targets: {
+      production: Deployment;
+    };
+  }
+  
+export interface VercelProjectsResponse {
+    projects: Project[];
+    pagination: {
+      count: number;
+      next: string | null;
+      prev: string | null;
+    };
+  }
+  
