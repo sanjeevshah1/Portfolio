@@ -15,12 +15,14 @@ async function fetchSites(): Promise<ProjectType[]> {
   const netlifyResponse =  await fetch("https://api.netlify.com/api/v1/sites", {
           headers: {
             Authorization: `Bearer ${NETLIFY_ACCESS_TOKEN}`,
+            'Cache-Control': 'no-cache',
           },
         });
 
   const vercelResponse = await fetch("https://api.vercel.com/v6/projects",{
           "headers": {
-            "Authorization": `Bearer ${VERCEL_ACCESS_TOKEN}`
+            "Authorization": `Bearer ${VERCEL_ACCESS_TOKEN}`,
+            'Cache-Control': 'no-cache',
         },
     "method": "get"
   })
