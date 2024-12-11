@@ -196,7 +196,7 @@ const CertificatesPage = () => {
                   <Award className="w-5 h-5 text-gray-300" />
                 </button>
               </div>
-              <div className="p-6">
+              {/* <div className="p-6">
                 <h3 className="text-2xl font-bold text-white mb-2">{selectedCertificate.title}</h3>
                 <p className="text-gray-400 mb-2">Issued by {selectedCertificate.issuer} • {selectedCertificate.date}</p>
                 <p className="text-gray-300 mb-4">{selectedCertificate.description}</p>
@@ -211,7 +211,7 @@ const CertificatesPage = () => {
                     </span>
                   ))}
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         )}
