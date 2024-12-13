@@ -75,7 +75,7 @@ const NetlifySites = () => {
         className="py-16 px-4 sm:px-10 md:px-20 lg:px-32 inset-0 h-full w-full bg-black bg-[linear-gradient(to_right,rgba(68,68,68,0.5)_1px,transparent_1px),linear-gradient(to_bottom,rgba(68,68,68,0.5)_1px,transparent_1px)] bg-[size:40px_40px]"
         >
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold tracking-wide text-white">My Projects</h2>
+          <h2 className="text-4xl md:text-6xl font-bold text-purple-500 hover:text-purple-600 font-mono transform hover:scale-110 transition-transform duration-300">Portfolio!</h2>
           <p className="text-lg text-gray-100 mt-4 max-w-2xl mx-auto">
             A showcase of projects that demonstrate my skills and creativity.
           </p>

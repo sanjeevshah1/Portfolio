@@ -71,7 +71,7 @@ const Header = () => {
           onClick={() => scrollToSection('projects')}
           className="text-purple-500 hover:text-purple-600 transform hover:scale-110 transition-transform duration-300"
         >
-          PROJECTS
+          PORTFOLIO
         </button>
       </li>
       <li>
