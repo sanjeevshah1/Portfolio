@@ -6,6 +6,7 @@ import Contact from './Components/Contact';
 import Social from './Components/Social';
 import Footer from './Components/Footer';
 import Projects from './Components/Projects';
+import { Timeline } from './Components/Timeline';
 import CertificatesPage from './Components/Certificates';
 
 const Portfolio = () => {
@@ -22,6 +23,7 @@ const Portfolio = () => {
       {/* About Section */}
       <About />   
 
+      <Timeline />
       
       {/* Certificates Section */}
       <CertificatesPage />

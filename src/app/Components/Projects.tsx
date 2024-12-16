@@ -47,8 +47,6 @@ async function fetchSites(): Promise<ProjectType[]> {
   const VercelProjects = await Promise.all(
     VercelSites.pagination ? VercelSites.projects?.map(async (project) =>{
       const languages = await fetchGit(`${project.link.org}/${project.link.repo}`)
-      console.log(languages);
-      console.log(`https://github.com/${project.link.org}/${project.link.repo}`)
       const deployedUrl = `https://${project.alias[0].deployment.alias[0]}`;
 
     const screenshotUrl = `${screenshotApiUrl}?key=${apiKey}&url=${encodeURIComponent(deployedUrl)}&dimension=1024x768`;
