@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import {Vortex} from './ui/vortex';
+import TypewriterText from './Typewriter';
 const Home = () => {
+
   return (
     <>
       <main id="main" className="container min-height-screen mx-auto px-4 py-4  sm:px-6 md:px-8 md:py-0  md:h-[calc(100vh-6rem)] mt-12 md:mt-6 lg:mt-6">
@@ -32,16 +34,26 @@ const Home = () => {
           {/* Text Content */}
           <div className="md:col-start-1 md:row-start-1 flex justify-center md:justify-start mt-6 md:mt-0 lg:mt-0">
             <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-6 sm:p-7 md:p-8 max-w-fit shadow-lg text-center md:text-left md:pr-20" >
-              <p className="text-base text-violet-500  sm:text-lg">Hi! It&apos;s me,</p>
-              <h1 className="text-3xl text-white font-bold italic sm:text-3xl md:text-4xl tracking-wider my-2 sm:my-3">
-                Sanjeev Shah
-              </h1>
-              <p className="text-base text-violet-500  sm:text-lg md:text-lg leading-relaxed">
-                Web Developer & Problem Solver
-              </p>
-              <p className="text-sm text-violet-500  sm:text-base md:text-lg mt-2">
-                Engineer to be...
-              </p>
+              <TypewriterText
+                text="Hi! It&apos;s me,"
+                className="text-base text-violet-500 sm:text-lg"
+                delay={0.4}
+              />
+              <TypewriterText
+                text="Sanjeev Shah"
+                className="text-3xl text-white font-bold italic sm:text-3xl md:text-4xl tracking-wider my-2 sm:my-3"
+                delay={1.4}
+              />
+              <TypewriterText
+                text="Web Developer & Problem Solver"
+                className="text-lg text-violet-500"
+                delay={2.4}
+              />
+              <TypewriterText
+                text="Engineer to be"
+                className="text-sm text-violet-500 sm:text-base md:text-lg mt-2"
+                delay={4.1}
+              />
             </div>
           </div>
           {/* Image below Text */}

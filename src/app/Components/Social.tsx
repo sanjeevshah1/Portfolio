@@ -17,7 +17,7 @@ const SocialLinks = () => {
           observer.disconnect(); // Stop observing after it's visible
         }
       },
-      { threshold: 0.02 } // Trigger when 2% of the component is visible
+      { threshold: 0} // Trigger when 2% of the component is visible
     );
 
     if (observerRef.current) {
@@ -58,29 +58,13 @@ const SocialLinks = () => {
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 p-8 md:p-12 
                      items-center justify-center"
         >
-
-          {/* Lottie Animation */}
-          {/* <div
-            ref={observerRef}
-            className="w-[200px] h-[200px] md:w-[300px] md:h-[300px]"
-          >
-            {
-              isVisible && (<div ref={observerRef} className="hidden md:flex w-screen  md:w-auto justify-center items-center">
-                <DotLottieReact 
-                   src="https://lottie.host/154357bd-5c36-4a36-8d8e-855195cba2a5/jYPO9xm53P.lottie"
-                   loop
-                   autoplay
-                   className="w-full max-w-[500px] h-auto"
-                 />
-             </div>)
-            }
-          </div> */}
           <div ref={observerRef} className="md:flex w-screen md:w-auto justify-center items-center">
             {isVisible && (
               <DotLottieReact 
                 src="https://lottie.host/154357bd-5c36-4a36-8d8e-855195cba2a5/jYPO9xm53P.lottie"
-                loop
+                loop={false}
                 autoplay
+                speed={1.2}
                 className="w-full max-w-[500px] h-auto"
               />
             )}
