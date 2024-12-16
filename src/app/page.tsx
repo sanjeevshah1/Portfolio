@@ -7,6 +7,7 @@ import Social from './Components/Social';
 import Footer from './Components/Footer';
 import Projects from './Components/Projects';
 import CertificatesPage from './Components/Certificates';
+
 const Portfolio = () => {
   return (
     // <div className="min-h-screen max-w-screen overflow-hidden  text-white font-cursive bg-gradient-to-r from-[#78776D] via-[#958F7F] to-[#C6AE94]">

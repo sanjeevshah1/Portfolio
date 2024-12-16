@@ -1,8 +1,14 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import { Award, CheckCircle, Maximize2 } from 'lucide-react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+const DotLottieReact = dynamic(() =>
+  import('@lottiefiles/dotlottie-react').then((component) => component.DotLottieReact),
+  { ssr: false } 
+);
+    
 interface Certificate {
     title: string;
     issuer: string;
@@ -13,6 +19,26 @@ interface Certificate {
 }
 const CertificatesPage = () => {
   const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const observerRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // Stop observing after it's visible
+        }
+      },
+      { threshold: 0.1 } // Trigger when 10% of the component is visible
+    );
+
+    if (observerRef.current) {
+      observer.observe(observerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   const certificates: Certificate[] = [
     {
@@ -109,6 +135,7 @@ const CertificatesPage = () => {
     >
       <div className="max-w-6xl mx-auto">
         <motion.div className="text-center mb-12">
+          <div className='flex  flex-col md:flex-row items-center justify-center  gap-8 md:gap-36 '>
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -117,6 +144,19 @@ const CertificatesPage = () => {
           >
             Professional Certifications!
           </motion.h1>
+          <div
+            ref={observerRef}
+            className="w-[200px] h-[200px] md:w-[300px] md:h-[300px]"
+          >
+            {isVisible && <DotLottieReact
+                src="https://lottie.host/a76a7afb-06f6-4db8-89aa-665c91652e0f/9JsXLoWVSq.lottie"
+                loop={false}
+                autoplay
+                speed={0.9}
+                className="w-[200px] h-[200px] md:w-[300px] md:h-[300px]"
+              />}
+      </div>
+          </div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
