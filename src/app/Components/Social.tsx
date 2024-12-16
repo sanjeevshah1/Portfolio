@@ -86,7 +86,7 @@ const SocialLinks = () => {
                          hover:from-purple-600 hover:to-pink-600 
                          transition-all duration-300"
             >
-              Let's Connect!
+              Let&apos;s Connect!
             </h1>
             <p 
               className="text-xl  text-gray-300 
@@ -94,7 +94,7 @@ const SocialLinks = () => {
                          leading-relaxed"
             >
               Join me on social media to stay updated with my latest projects, 
-              thoughts, and adventures. Let's build connections and share experiences!
+              thoughts, and adventures. Let&apos;s build connections and share experiences!
             </p>
           </div>
 
