@@ -30,7 +30,7 @@ const CertificatesPage = () => {
           observer.disconnect(); // Stop observing after it's visible
         }
       },
-      { threshold: 0.1 } // Trigger when 10% of the component is visible
+      { threshold: 0.05 } // Trigger when 5% of the component is visible
     );
 
     if (observerRef.current) {

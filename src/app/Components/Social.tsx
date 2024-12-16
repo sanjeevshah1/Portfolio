@@ -99,7 +99,7 @@ const SocialLinks = () => {
           </div>
 
           {/* Lottie Animation for mobile*/}
-          <div className="flex w-screen md:hidden md:w-auto justify-center items-center">
+          <div ref={observerRef} className="flex w-screen md:hidden md:w-auto justify-center items-center">
             { isVisible && <DotLottieReact 
               src="https://lottie.host/154357bd-5c36-4a36-8d8e-855195cba2a5/jYPO9xm53P.lottie"
               loop
