@@ -98,7 +98,7 @@ const Header = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex flex-col md:flex-row items-center gap-8 my-8 md:my-0 text-xl">
+        <ul className="hidden md:flex flex-col mx-auto md:flex-row items-center gap-8 my-8 sm:text-base md:my-0 md:text-lg lg:text-xl">
           <NavLinks />
         </ul>
 
@@ -141,7 +141,7 @@ const Header = () => {
               <li>
                 <button
                   onClick={() => scrollToSection('connect')}
-                  className="text-purple-500 hover:text-purple-600 italic"
+                  className="text-purple-500 hover:text-purple-600"
                 >
                   CONNECT
                 </button>
