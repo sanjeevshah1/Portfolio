@@ -60,6 +60,14 @@ const Header = () => {
       </li>
       <li>
         <button
+          onClick={() => scrollToSection('journey')}
+          className="text-purple-500 hover:text-purple-600 transform hover:scale-110 transition-transform duration-300"
+        >
+          JOURNEY
+        </button>
+      </li>
+      <li>
+        <button
           onClick={() => scrollToSection('certificates')}
           className="text-purple-500 hover:text-purple-600 transform hover:scale-110 transition-transform duration-300"
         >
@@ -87,23 +95,23 @@ const Header = () => {
 
   return (
     <>
-      <nav className="flex bg-black flex-col md:flex-row items-center justify-between py-5 px-8 md:pt-8">
+      <nav className="flex bg-black flex-col lg:flex-row items-center justify-between py-5 px-8 md:pt-8">
         {/* Logo and Menu Icon */}
-        <div className="flex justify-between items-center w-full md:w-auto">
+        <div className="flex justify-between items-center w-full lg:w-auto">
           <h1 className="text-white italic text-2xl">Sanjeev</h1>
           <List
-            className={`${isModalOpen ? "hidden" : "visible"} h-10 w-10 text-white cursor-pointer md:hidden`}
+            className={`${isModalOpen ? "hidden" : "visible"} h-10 w-10 text-white cursor-pointer lg:hidden`}
             onClick={openModal}
           />
         </div>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex flex-col mx-auto md:flex-row items-center gap-8 my-8 sm:text-base md:my-0 md:text-lg lg:text-xl">
+        <ul className="hidden lg:flex flex-col mx-auto md:flex-row items-center gap-8 my-8 sm:text-base md:my-0 md:text-lg lg:text-xl">
           <NavLinks />
         </ul>
 
         {/* Connect Button */}
-        <h2 className="text-2xl cursor-pointer hidden md:block">
+        <h2 className="text-2xl cursor-pointer hidden lg:block">
           <button
             onClick={() => scrollToSection('connect')}
             className="text-white italic mr-4 hover:text-gray-300"

@@ -160,7 +160,7 @@ export function Timeline() {
     },
   ];
   return (
-    <div className="w-full overflow-y-hidden">
+    <div className="w-full overflow-y-hidden" id="journey">
       <TimelineComponent data={data} />
     </div>
   );

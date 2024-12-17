@@ -54,7 +54,7 @@ const Contact = () => {
               Contact Me!
             </h3>
             <p className="text-gray-300 mb-6">
-              Feel free to reach out. I'm always open to discussing new projects, creative ideas, or opportunities to collaborate.
+              Feel free to reach out. I&apos;m always open to discussing new projects, creative ideas, or opportunities to collaborate.
             </p>
             <div className="space-y-4">
               <div className="flex items-center space-x-4">
