@@ -37,22 +37,22 @@ const Home = () => {
               <TypewriterText
                 text="Hi! It&apos;s me,"
                 className="text-base text-violet-500 sm:text-lg"
-                delay={0.4}
+                delay={4.9}
               />
               <TypewriterText
                 text="Sanjeev Shah"
                 className="text-3xl text-white font-bold italic sm:text-3xl md:text-4xl tracking-wider my-2 sm:my-3"
-                delay={1.4}
+                delay={5.9}
               />
               <TypewriterText
                 text="Web Developer & Problem Solver"
                 className="text-lg text-violet-500"
-                delay={2.4}
+                delay={6.9}
               />
               <TypewriterText
                 text="Engineer to be"
                 className="text-sm text-violet-500 sm:text-base md:text-lg mt-2"
-                delay={4.1}
+                delay={8.6}
               />
             </div>
           </div>
