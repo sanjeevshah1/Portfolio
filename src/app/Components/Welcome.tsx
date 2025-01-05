@@ -29,30 +29,8 @@ const WelcomeModal = () => {
     <div 
       className={`fixed inset-0 w-screen h-screen flex items-center justify-center z-50 backdrop-blur-sm bg-fuchsia-200/40 overflow-hidden
         ${isClosing ? 'animate-collapse' : 'animate-expand'}`}
-      style={{
-        animation: isClosing ? 'collapse 1s ease-in-out forwards' : 'expand 0.5s ease-out'
-      }}
+        style={{animation: `${isClosing ? 'collapse 1s ease-in-out forwards' : 'expand 0.5s ease-out'}`}}
     >
-      <style jsx global>{`
-        @keyframes collapse {
-          0% {
-            clip-path: inset(0 0 0 0);
-          }
-          100% {
-            clip-path: inset(0 50% 0 50%);
-          }
-        }
-        
-        @keyframes expand {
-          0% {
-            clip-path: inset(0 50% 0 50%);
-          }
-          100% {
-            clip-path: inset(0 0 0 0);
-          }
-        }
-      `}</style>
-      
       <DotLottieReact
         src="https://lottie.host/805e61a7-017e-4ecd-a71a-f32c3e0ff279/gHCCjtr8UV.lottie"
         loop={false}

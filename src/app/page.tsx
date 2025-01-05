@@ -9,6 +9,7 @@ import Projects from './Components/Projects';
 import { Timeline } from './Components/Timeline';
 import CertificatesPage from './Components/Certificates';
 
+
 const Portfolio = () => {
   return (
     // <div className="min-h-screen max-w-screen overflow-hidden  text-white font-cursive bg-gradient-to-r from-[#78776D] via-[#958F7F] to-[#C6AE94]">

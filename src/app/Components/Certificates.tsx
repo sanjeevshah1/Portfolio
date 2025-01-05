@@ -88,6 +88,14 @@ const CertificatesPage = () => {
       description: "A course focused on building modern UIs with Tailwind CSS.",
       skills: ["Tailwind CSS"],
       image: "/Certificates/scrimba_tailwind_css.jpg"
+    },
+    {
+      title: "Introduction to MongoDB",
+      issuer: "MongoDB",
+      date: "January 05, 2025",
+      description: "A course focused on bascis of MongoDB",
+      skills: ["CRUD operations","Aggregation", "Indexes","Atlas Search",],
+      image: "/Certificates/learnMongo_Intro.jpg"
     }
   ];
 
