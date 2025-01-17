@@ -28,7 +28,7 @@ const Home = () => {
 
   return (
     <>
-      <main id="main" className="container  min-height-screen mx-auto px-4 py-4 sm:px-6 md:px-8 md:py-0 md:h-[calc(100vh-6rem)] mt-12 md:mt-6 lg:mt-6">
+      <main id="main" className="container  min-height-screen mx-auto px-4 pb-0 pt-4 sm:px-6 md:px-8 md:py-0 md:h-[calc(100vh-6rem)] mt-12 md:mt-6 lg:mt-6">
         <Vortex
           backgroundColor="black"
           className="flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-full"

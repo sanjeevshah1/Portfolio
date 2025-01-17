@@ -65,7 +65,7 @@ const DeveloperProfile = () => {
     <section
       ref={sectionRef}
       id="about"
-      className="min-h-screen bg-black relative overflow-hidden py-20"
+      className="min-h-screen bg-black relative overflow-hidden p-10 pb-20"
     >
       {/* Gradient orbs */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full filter blur-3xl animate-[pulse_4s_ease-in-out_infinite]" />
