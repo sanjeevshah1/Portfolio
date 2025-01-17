@@ -6,16 +6,16 @@ const Home = () => {
   const SocialLinks = () => {
     return (
       <div className="md:flex md:flex-wrap gap-4 items-center hidden md:pt-[115%] ">
-        <a href="https://www.facebook.com/profile.php?id=100017944472776" target="_blank" rel="noopener noreferrer" className="p-3 border border-purple-600 rounded-full">
+        <a href="https://www.facebook.com/Sanjeev073.sah/" target="_blank" rel="noopener noreferrer" className="p-3 border border-purple-600 rounded-full">
           <FacebookIcon className="w-4 h-4 md:w-6 md:h-6 text-blue-500 hover:scale-[1.2] transition-transform duration-50" />
         </a>
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-3 border border-purple-600 rounded-full">
+        <a href="https://github.com/sanjeevshah1" target="_blank" rel="noopener noreferrer" className="p-3 border border-purple-600 rounded-full">
           <GithubIcon className="w-4 h-4 md:w-6 md:h-6 text-gray-400 hover:scale-[1.2] transition-transform duration-50" />
         </a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-3 border border-purple-600 rounded-full">
+        <a href="https://np.linkedin.com/in/sanjeev-sah-b354b9210" target="_blank" rel="noopener noreferrer" className="p-3 border border-purple-600 rounded-full">
           <LinkedinIcon className="w-4 h-4 md:w-6 md:h-6 text-blue-600 hover:scale-[1.2] transition-transform duration-50" />
         </a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-3 border border-purple-600 rounded-full">
+        <a href="https://www.instagram.com/sanjeev_shah__/" target="_blank" rel="noopener noreferrer" className="p-3 border border-purple-600 rounded-full">
           <InstagramIcon className="w-4 h-4 md:w-6 md:h-6 text-pink-400 hover:scale-[1.2] transition-transform duration-50" />
         </a>
         <button className="ml-auto px-4 p-2 md:px-6 md:p-3 border md:relative md:-right-6 text-sm md:text-base text-white/80 hover:text-white/90 border-purple-600 bg-purple-600/80 rounded-full">
@@ -28,7 +28,7 @@ const Home = () => {
 
   return (
     <>
-      <main id="main" className="container min-height-screen mx-auto px-4 py-4 sm:px-6 md:px-8 md:py-0 md:h-[calc(100vh-6rem)] mt-12 md:mt-6 lg:mt-6">
+      <main id="main" className="container  min-height-screen mx-auto px-4 py-4 sm:px-6 md:px-8 md:py-0 md:h-[calc(100vh-6rem)] mt-12 md:mt-6 lg:mt-6">
         <Vortex
           backgroundColor="black"
           className="flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-full"
