@@ -5,7 +5,9 @@ import { ProjectType, NetlifySiteType, LanguagesType, VercelProjectsResponse } f
 
 async function fetchGit(repoPath: string): Promise<LanguagesType> {
   if (!repoPath) return {};
-  const response = await fetch(`https://api.github.com/repos/${repoPath}/languages`);
+  const response = await fetch(`https://api.github.com/repos/${repoPath}/languages`,{
+    next : { revalidate: 3600 }
+  });
   return response.json();
 }
 
@@ -15,14 +17,18 @@ async function fetchSites(): Promise<ProjectType[]> {
   const netlifyResponse =  await fetch("https://api.netlify.com/api/v1/sites", {
           headers: {
             Authorization: `Bearer ${NETLIFY_ACCESS_TOKEN}`,
-            'Cache-Control': 'no-cache',
           },
+          next: {
+            revalidate : 3600
+          }
         });
 
   const vercelResponse = await fetch("https://api.vercel.com/v6/projects",{
           "headers": {
             "Authorization": `Bearer ${VERCEL_ACCESS_TOKEN}`,
-            'Cache-Control': 'no-cache',
+        },
+        "next": {
+          revalidate : 3600
         },
     "method": "get"
   })
@@ -47,12 +53,12 @@ async function fetchSites(): Promise<ProjectType[]> {
   const VercelProjects = await Promise.all(
     VercelSites.pagination ? VercelSites.projects?.map(async (project) =>{
       const languages = await fetchGit(`${project.link.org}/${project.link.repo}`)
-      const deployedUrl = `https://${project.alias[0].deployment.alias[0]}`;
+      const deployedUrl = `https://${project.latestDeployments[0].alias[0]}`
 
     const screenshotUrl = `${screenshotApiUrl}?key=${apiKey}&url=${encodeURIComponent(deployedUrl)}&dimension=1024x768`;
       return {
         name: project.name,
-        url: `https://${project.alias[0].deployment.alias[0]}`,
+        url: deployedUrl,
         screenshot_url: screenshotUrl, 
         repoUrl: `https://github.com/${project.link.org}/${project.link.repo}`,
         languages,
