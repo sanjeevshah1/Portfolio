@@ -4,43 +4,29 @@ import dynamic from 'next/dynamic';
 import { Award, CheckCircle, Maximize2 } from 'lucide-react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+
 const DotLottieReact = dynamic(() =>
   import('@lottiefiles/dotlottie-react').then((component) => component.DotLottieReact),
-  { ssr: false } 
+  { ssr: false }
 );
-    
+
 interface Certificate {
-    title: string;
-    issuer: string;
-    date: string;
-    description: string;
-    skills: string[];
-    image: string;
+  title: string;
+  issuer: string;
+  date: string;
+  description: string;
+  skills: string[];
+  image: string;
 }
+
 const CertificatesPage = () => {
   const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const observerRef = useRef(null);
+  const [shuffledCertificates, setShuffledCertificates] = useState<Certificate[]>([]);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect(); // Stop observing after it's visible
-        }
-      },
-      { threshold: 0.05 } // Trigger when 5% of the component is visible
-    );
-
-    if (observerRef.current) {
-      observer.observe(observerRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  const certificates: Certificate[] = [
+  // Your existing certificates array and useEffects remain the same
+   const certificates: Certificate[] = [
     {
       title: "React Basics",
       issuer: "Meta",
@@ -99,17 +85,33 @@ const CertificatesPage = () => {
     }
   ];
 
-  const [shuffledCertificates, setShuffledCertificates] = useState<Certificate[]>([]);
 
-    useEffect(() => {
-        const shuffled = [...certificates];
-        for (let i = shuffled.length - 1; i > 0; i--) {
-            const randomIndex = Math.floor(Math.random() * (i + 1));
-            [shuffled[i], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[i]];
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
         }
-        setShuffledCertificates(shuffled);
-    }, []);
+      },
+      { threshold: 0.05 }
+    );
 
+    if (observerRef.current) {
+      observer.observe(observerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const shuffled = [...certificates];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const randomIndex = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[i]];
+    }
+    setShuffledCertificates(shuffled);
+  }, []);
 
   const openCertificateModal = (certificate: Certificate) => {
     setSelectedCertificate(certificate);
@@ -120,17 +122,16 @@ const CertificatesPage = () => {
   };
 
   const pageVariants = {
-    initial: { opacity: 0, x: -100 },
-    in: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
-    out: { opacity: 0, x: 100, transition: { duration: 0.5 } },
+    initial: { opacity: 0, y: -20 },
+    in: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    out: { opacity: 0, y: 20, transition: { duration: 0.5 } },
   };
 
   const cardVariants = {
-    initial: { opacity: 0, x: -50, scale: 0.9 },
-    in: { opacity: 1, x: 0, scale: 1, transition: { duration: 0.6, ease: "easeOut" } },
-    hover: { scale: 1.02, transition: { duration: 0.2 } },
+    initial: { opacity: 0, scale: 0.9 },
+    in: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+    hover: { scale: 1.03, transition: { duration: 0.2 } },
   };
-
 
   return (
     <motion.div
@@ -139,76 +140,78 @@ const CertificatesPage = () => {
       exit="out"
       variants={pageVariants}
       id='certificates'
-      className="min-h-screen bg-gray-900 text-gray-200  py-12 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="min-h-screen bg-gray-900 text-gray-200 py-12 px-4 sm:px-6 lg:px-8"
     >
-      <div className="max-w-6xl mx-auto">
-        <motion.div className="text-center mb-12">
-          <div className='flex  flex-col md:flex-row items-center justify-center  gap-8 md:gap-36 '>
-          <motion.h1
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold text-purple-500 hover:text-purple-600 font-mono transform hover:scale-110 transition-transform duration-300"
-          >
-            Professional Certifications!
-          </motion.h1>
-          <div
-            ref={observerRef}
-            className="w-[200px] h-[200px] md:w-[300px] md:h-[300px]"
-          >
-            {isVisible && <DotLottieReact
-                src="https://lottie.host/a76a7afb-06f6-4db8-89aa-665c91652e0f/9JsXLoWVSq.lottie"
-                loop={false}
-                autoplay
-                speed={0.9}
-                className="w-[200px] h-[200px] md:w-[300px] md:h-[300px]"
-              />}
-      </div>
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-36 mb-8">
+            <motion.h1
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-4xl md:text-5xl font-bold text-purple-500 font-josefinSlab hover:text-purple-600 transform hover:scale-110 transition-transform duration-300"
+            >
+              Certifications!
+            </motion.h1>
+            <div ref={observerRef} className="w-[200px] h-[200px] md:w-[300px] md:h-[300px]">
+              {isVisible && (
+                <DotLottieReact
+                  src="https://lottie.host/a76a7afb-06f6-4db8-89aa-665c91652e0f/9JsXLoWVSq.lottie"
+                  loop={false}
+                  autoplay
+                  speed={0.9}
+                  className="w-full h-full"
+                />
+              )}
+            </div>
           </div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-4 text-xl text-gray-400"
+            className="text-xl text-gray-400"
           >
             Continuous learning and professional development
           </motion.p>
-        </motion.div>
+        </div>
 
-        <div className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {shuffledCertificates.map((cert, index) => (
             <motion.div
               key={index}
               variants={cardVariants}
+              initial="initial"
+              animate="in"
               whileHover="hover"
-              className="bg-gray-800 shadow-lg rounded-xl overflow-hidden transition-all duration-300 group flex"
+              className="bg-gray-800 rounded-xl overflow-hidden shadow-lg group hover:shadow-purple-500/20 transition-all duration-300"
             >
-              <div className="w-1/3 relative">
+              <div className="relative aspect-video">
                 <Image
                   src={cert.image}
                   alt={cert.title}
-                  width={500}
-                  height={300}
-                  className="w-full h-full object-cover group-hover:opacity-90 transition-opacity"
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <button
                   onClick={() => openCertificateModal(cert)}
-                  className="absolute top-2 right-2 bg-gray-700/70 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  className="absolute top-2 right-2 bg-gray-900/70 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-purple-500/70"
                 >
-                  <Maximize2 className="w-5 h-5 text-gray-300" />
+                  <Maximize2 className="w-5 h-5 text-white" />
                 </button>
               </div>
-              <div className="w-2/3 p-6 flex flex-col justify-between">
-                <div>
-                  <h2 className="text-2xl font-bold text-white mb-2">{cert.title}</h2>
-                  <p className="text-gray-400 mb-2">{cert.issuer} • {cert.date}</p>
-                  <p className="text-gray-300 mb-4">{cert.description}</p>
+              
+              <div className="p-6 space-y-4">
+                <div className='font-josefinSlab'>
+                  <h2 className="text-2xl font-josefinSlab text-purple-200 mb-2 line-clamp-1">{cert.title}</h2>
+                  <p className=" text-md mb-2 font-josefinSlab text-purple-200">{cert.issuer} • {cert.date}</p>
+                  <p className="text-sm line-clamp-2 text-purple-100">{cert.description}</p>
                 </div>
-                <div className="flex flex-wrap gap-2">
+                
+                <div className="flex flex-wrap gap-2 ">
                   {cert.skills.map((skill, skillIndex) => (
                     <span
                       key={skillIndex}
-                      className="px-3 py-1 bg-gray-700 text-gray-200 text-xs font-medium rounded-full flex items-center"
+                      className="px-3 py-1 bg-gray-700 text-gray-200 text-xs font-medium rounded-full flex items-center hover:bg-purple-500/30 transition-colors"
                     >
                       <CheckCircle className="w-3 h-3 mr-1" strokeWidth={2} />
                       {skill}
@@ -222,37 +225,39 @@ const CertificatesPage = () => {
 
         {selectedCertificate && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
             onClick={closeCertificateModal}
           >
-            <div
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
               className="bg-gray-800 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl relative"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative">
+              <div className="relative aspect-video">
                 <Image
                   src={selectedCertificate.image}
                   alt={selectedCertificate.title}
-                  width={800}
-                  height={400}
-                  className="w-full object-cover rounded-t-xl"
+                  fill
+                  className="object-cover"
                 />
                 <button
                   onClick={closeCertificateModal}
-                  className="absolute top-4 right-4 bg-gray-700/70 rounded-full p-2 hover:bg-gray-600 transition-all"
+                  className="absolute top-4 right-4 bg-gray-900/70 rounded-full p-2 hover:bg-purple-500/70 transition-colors"
                 >
-                  <Award className="w-5 h-5 text-gray-300" />
+                  <Award className="w-5 h-5 text-white" />
                 </button>
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-bold text-white mb-2">{selectedCertificate.title}</h3>
-                <p className="text-gray-400 mb-2">Issued by {selectedCertificate.issuer} • {selectedCertificate.date}</p>
-                <p className="text-gray-300 mb-4  sm:visible">{selectedCertificate.description}</p>
+                <p className="text-gray-400 mb-4">Issued by {selectedCertificate.issuer} • {selectedCertificate.date}</p>
+                <p className="text-gray-300 mb-6">{selectedCertificate.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {selectedCertificate.skills.map((skill, skillIndex) => (
                     <span
                       key={skillIndex}
-                      className="px-3 py-1 bg-gray-700 text-gray-200 text-xs font-medium rounded-full flex items-center"
+                      className="px-3 py-1 bg-gray-700 text-gray-200 text-sm font-medium rounded-full flex items-center hover:bg-purple-500/30 transition-colors"
                     >
                       <CheckCircle className="w-3 h-3 mr-1" strokeWidth={2} />
                       {skill}
@@ -260,7 +265,7 @@ const CertificatesPage = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         )}
       </div>

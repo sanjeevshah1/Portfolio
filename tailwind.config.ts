@@ -16,7 +16,10 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        josefinSlab : ["Josefin Slab", "serif"],
     },
+  }
   },
   plugins: [addVariablesForColors],
 } satisfies Config;

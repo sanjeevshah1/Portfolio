@@ -23,14 +23,15 @@ const Portfolio = () => {
 
       {/* About Section */}
       <About />   
+      
+      {/* Projects Section */}
+      <Projects />
 
       <Timeline />
       
       {/* Certificates Section */}
       <CertificatesPage />
       
-      {/* Projects Section */}
-      <Projects />
 
       {/* Contact Section */}
       <Contact />          

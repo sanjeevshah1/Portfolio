@@ -50,7 +50,7 @@ const Contact = () => {
         <div className="grid lg:grid-cols-2 gap-12 bg-gray-800/60 backdrop-blur-lg border border-gray-700/50 rounded-xl shadow-2xl overflow-hidden">
           {/* Contact Information Column */}
           <div className="hidden lg:flex flex-col justify-center p-12 bg-gradient-to-br from-purple-800/50 to-pink-800/50">
-            <h3 className="text-3xl font-bold mb-6 text-white">
+            <h3 className="text-4xl font-josefinSlab mb-6 text-white">
               Contact Me!
             </h3>
             <p className="text-gray-300 mb-6">
@@ -74,7 +74,7 @@ const Contact = () => {
 
           {/* Form Column */}
           <div className="p-8 w-full lg:p-12">
-            <h2 className="text-4xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600 animate-pulse">
+            <h2 className="text-5xl font-bold text-center font-josefinSlab mb-8 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600 animate-pulse">
               Get in Touch
             </h2>
             

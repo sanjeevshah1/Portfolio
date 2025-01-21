@@ -73,7 +73,7 @@ const SocialLinks = () => {
           {/* Text Content */}
           <div className="text-center lg:text-left space-y-6">
             <h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-extrabold 
+              className="text-4xl md:text-5xl lg:text-6xl font-josefinSlab 
                          text-transparent bg-clip-text 
                          bg-gradient-to-r from-purple-500 to-pink-500 
                          hover:from-purple-600 hover:to-pink-600 
@@ -83,7 +83,7 @@ const SocialLinks = () => {
             </h1>
             <p 
               className="text-xl  text-gray-300 
-                         max-w-2xl mx-auto lg:mx-0 
+                         max-w-2xl mx-auto lg:mx-0  
                          leading-relaxed"
             >
               Join me on social media to stay updated with my latest projects, 

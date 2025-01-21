@@ -60,6 +60,14 @@ const Header = () => {
       </li>
       <li>
         <button
+          onClick={() => scrollToSection('projects')}
+          className="text-purple-500 hover:text-purple-600 transform hover:scale-110 transition-transform duration-300"
+        >
+          PORTFOLIO
+        </button>
+      </li>
+      <li>
+        <button
           onClick={() => scrollToSection('journey')}
           className="text-purple-500 hover:text-purple-600 transform hover:scale-110 transition-transform duration-300"
         >
@@ -74,14 +82,7 @@ const Header = () => {
           CERTIFICATES
         </button>
       </li>
-      <li>
-        <button
-          onClick={() => scrollToSection('projects')}
-          className="text-purple-500 hover:text-purple-600 transform hover:scale-110 transition-transform duration-300"
-        >
-          PORTFOLIO
-        </button>
-      </li>
+     
       <li>
         <button
           onClick={() => scrollToSection('contact-me')}
@@ -106,7 +107,7 @@ const Header = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <ul className="hidden lg:flex flex-col mx-auto md:flex-row items-center gap-8 my-8 sm:text-base md:my-0 md:text-lg lg:text-xl">
+        <ul className="hidden lg:flex font-josefinSlab flex-col mx-auto md:flex-row items-center gap-8 my-8 sm:text-base md:my-0 md:text-lg lg:text-xl">
           <NavLinks />
         </ul>
 

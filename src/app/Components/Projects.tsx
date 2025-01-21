@@ -71,6 +71,20 @@ async function fetchSites(): Promise<ProjectType[]> {
 
 const NetlifySites = () => {
   const projects: ProjectType[] = use(fetchSites());
+  const undeployedProjects: ProjectType[] = [
+    {
+      name:"Browse Back - The Extension",
+      url: "Not Deployed",
+      screenshot_url: "/BrowseBack.jpg",
+      languages: {
+        "HTML" : 0,
+        "CSS" : 0,
+        "JavaScript" : 0,
+        "TypeScriopt" : 0,
+      },
+      repoUrl: "https://github.com/sanjeevshah1/Browse-Back---The-Extension"
+    }
+  ];
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
@@ -78,14 +92,19 @@ const NetlifySites = () => {
         id="projects"
         className="py-16 px-4 sm:px-10 md:px-20 lg:px-32 inset-0 h-full w-full bg-black bg-[linear-gradient(to_right,rgba(68,68,68,0.5)_1px,transparent_1px),linear-gradient(to_bottom,rgba(68,68,68,0.5)_1px,transparent_1px)] bg-[size:40px_40px]"
         >
-        <div className="text-center mb-12">
+        <div className="mb-12 font-josefinSlab">
           <h2 className="text-4xl md:text-6xl font-bold text-purple-500 hover:text-purple-600 font-mono transform hover:scale-110 transition-transform duration-300">Portfolio!</h2>
-          <p className="text-lg text-gray-100 mt-4 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-100 mt-4 max-w-2xl ">
             A showcase of projects that demonstrate my skills and creativity.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-12">
+          {
+            undeployedProjects.map((project,index) => {
+              return <ProjectCard key={index} project={project} />
+            })
+          }
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} />
           ))}

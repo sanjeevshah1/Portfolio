@@ -73,16 +73,16 @@ const DeveloperProfile = () => {
 
       <div className="max-w-6xl mx-auto px-4 relative z-10">
         <div
-          className={`text-center mb-20 transition-opacity duration-1000 ${
+          className={` mb-20 transition-opacity duration-1000 ${
             isVisible ? "opacity-100" : "opacity-0"
           }`}
         >
           <h2
-            className={`text-4xl md:text-5xl font-bold text-purple-500 hover:text-purple-600 mb-6 transition-transform duration-1000 ${
+            className={`text-4xl md:text-5xl font-josefinSlab text-purple-500 hover:text-purple-600 mb-6 transition-transform duration-1000 ${
               isVisible ? "translate-y-0" : "-translate-y-10"
             }`}
           >
-            About Me
+            About me
           </h2>
         </div>
 
@@ -136,7 +136,7 @@ const DeveloperProfile = () => {
                   </div>
 
                   <p
-                    className={`text-gray-300 leading-relaxed text-lg transition-colors duration-500
+                    className={`text-gray-300 leading-relaxed text-lg font-josefinSlab transition-colors duration-500
                     ${activeIndex === index ? "text-white" : ""}`}
                   >
                     {item.text}

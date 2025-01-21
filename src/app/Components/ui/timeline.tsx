@@ -37,10 +37,10 @@ export const TimelineComponent = ({ data }: { data: TimelineEntry[] }) => {
       ref={containerRef}
     >
       <div className="max-w-7xl mx-auto pt-20 pb-0 px-4 md:px-8 lg:px-10">
-        <h2 className="text-2xl font-mono md:text-6xl text-purple-500 hover:text-purple-600 mb-4">
+        <h2 className="text-2xl font-josefinSlab md:text-6xl text-purple-500 hover:text-purple-600 mb-4">
           My journey.
         </h2>
-        <p className="text-neutral-300 text-sm md:text-base max-w-sm">
+        <p className="text-neutral-300 text-md font-josefinSlab max-w-sm">
           I&apos;ve been studying Electronics, Communication and Information Engineering for the past 3 years.<br/> Here&apos;s
           a timeline of my journey.
         </p>
@@ -56,7 +56,7 @@ export const TimelineComponent = ({ data }: { data: TimelineEntry[] }) => {
               <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-black flex items-center justify-center">
                 <div className="h-4 w-4 rounded-full bg-neutral-800 border border-neutral-700 p-2" />
               </div>
-              <h3 className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-neutral-200 ">
+              <h3 className="hidden md:block text-xl md:pl-20 md:text-5xl font-josefinSlab text-neutral-200 ">
                 {item.title}
               </h3>
             </div>
