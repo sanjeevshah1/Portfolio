@@ -71,7 +71,7 @@ const Home = () => {
                   delay={4.9}
                 />
                 <TypewriterText
-                  text="Sanjeev Shah"
+                  text="Sanjeev Sah"
                   className="text-3xl text-white font-bold italic sm:text-3xl md:text-4xl tracking-wider my-2 sm:my-3"
                   delay={5.9}
                 />
