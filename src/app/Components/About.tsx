@@ -11,7 +11,7 @@ const DeveloperProfile = () => {
     {
       icon: "🌱",
       title: "Learning",
-      text: "I'm currently learning advanced Typescript, React.js, and backend development with Node.js.",
+      text: "I'm currently learning Electron Js, Docker, and basics of system design.",
     },
     {
       icon: "💞️",
