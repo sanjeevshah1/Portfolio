@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { cn } from "../../lib/utils";
 import React, { useEffect, useRef } from "react";
 import { createNoise3D } from "simplex-noise";
@@ -83,7 +83,6 @@ export const Vortex = (props: VortexProps) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-
     const x = rand(canvas.width);
     const y = center[1] + randRange(rangeY);
     const vx = 0;
@@ -123,13 +122,13 @@ export const Vortex = (props: VortexProps) => {
     if (!canvas) return;
 
     const i2 = 1 + i;
-    const  i3 = 2 + i;
-    const  i4 = 3 + i;
-    const  i5 = 4 + i;
-    const  i6 = 5 + i;
-    const  i7 = 6 + i;
-    const  i8 = 7 + i;
-    const  i9 = 8 + i;
+    const i3 = 2 + i;
+    const i4 = 3 + i;
+    const i5 = 4 + i;
+    const i6 = 5 + i;
+    const i7 = 6 + i;
+    const i8 = 7 + i;
+    const i9 = 8 + i;
     let life;
 
     const x = particleProps[i];
@@ -158,7 +157,6 @@ export const Vortex = (props: VortexProps) => {
     if (checkBounds(x, y, canvas) || life > ttl) {
       initParticle(i);
     }
-    
   };
 
   const drawParticle = (
@@ -189,7 +187,7 @@ export const Vortex = (props: VortexProps) => {
   };
 
   const resize = (
-    canvas: HTMLCanvasElement,
+    canvas: HTMLCanvasElement
     // ctx?: CanvasRenderingContext2D
   ) => {
     const { innerWidth, innerHeight } = window;

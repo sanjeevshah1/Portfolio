@@ -1,5 +1,5 @@
-'use client';
-import React, { useEffect, useState, useRef } from 'react';
+"use client";
+import React, { useEffect, useState, useRef } from "react";
 
 const DeveloperProfile = () => {
   const items = [
@@ -32,7 +32,7 @@ const DeveloperProfile = () => {
       icon: "📈",
       title: "Growth",
       text: "I constantly challenge myself by learning new technologies and improving my problem-solving skills.",
-    }    
+    },
   ];
 
   const [activeIndex, setActiveIndex] = useState<null | number>(null);
@@ -91,7 +91,9 @@ const DeveloperProfile = () => {
             <div
               key={index}
               className={`transform transition-all duration-1000 ease-out ${
-                isVisible ? "translate-y-0 opacity-100" : "translate-y-32 opacity-0"
+                isVisible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-32 opacity-0"
               }`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
@@ -116,9 +118,7 @@ const DeveloperProfile = () => {
                     }`}
                 />
 
-                <div
-                  className="relative h-full rounded-xl bg-gray-900 bg-opacity-50 p-8 flex flex-col"
-                >
+                <div className="relative h-full rounded-xl bg-gray-900 bg-opacity-50 p-8 flex flex-col">
                   <div className="flex items-center gap-4 mb-6">
                     <span
                       className={`text-4xl transform transition-all duration-500 
@@ -157,7 +157,7 @@ const DeveloperProfile = () => {
             opacity: 1;
           }
         }
-        
+
         @keyframes slideDown {
           from {
             opacity: 0;
@@ -168,7 +168,7 @@ const DeveloperProfile = () => {
             transform: translateY(0);
           }
         }
-        
+
         @keyframes expandWidth {
           from {
             width: 0;
