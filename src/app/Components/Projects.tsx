@@ -1,5 +1,5 @@
 "use client";
-import { use, Suspense } from "react";
+import {Suspense } from "react";
 import useSWR from "swr";
 import ProjectCard from "./ProjectCard";
 import {
@@ -8,8 +8,6 @@ import {
   LanguagesType,
   VercelProjectsResponse,
 } from "../types";
-
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 async function fetchGit(repoPath: string): Promise<LanguagesType> {
   if (!repoPath) return {};

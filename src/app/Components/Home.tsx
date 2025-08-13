@@ -97,7 +97,7 @@ const Home = () => {
                 Download Resume
               </button>
 
-              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-6 sm:p-7 md:p-8 max-w-fit shadow-lg text-center md:text-left md:pr-8">
+              <div className="about bg-white/10 backdrop-blur-sm rounded-3xl p-6 sm:p-7 md:p-8 shadow-lg text-center md:text-left md:pr-8 w-[280px]  sm:w-[300px]  md:w-[350px]  lg:w-[370px]  flex flex-col justify-center overflow-hidden">
                 <TypewriterText
                   text="Hi! It's me,"
                   className="text-base text-violet-500 sm:text-lg"

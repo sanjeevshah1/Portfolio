@@ -2,7 +2,6 @@
 import React from "react";
 import { TimelineComponent } from "./ui/timeline";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import {
   SiHtml5,
   SiCss3,
