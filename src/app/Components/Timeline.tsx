@@ -1,197 +1,191 @@
-import Image from "next/image";
+"use client";
 import React from "react";
 import { TimelineComponent } from "./ui/timeline";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import {
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiReact,
+  SiTypescript,
+  SiNodedotjs,
+  SiMysql,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiFramer,
+  SiDocker,
+  SiRedis,
+  SiSocketdotio,
+  SiPostman,
+  SiVitest,
+  SiGit,
+  SiExpress,
+  SiC,
+  SiCplusplus,
+} from "react-icons/si";
+
+type TimelineItem = {
+  title: string;
+  description: string;
+  skills?: { name: string; icon: JSX.Element }[];
+  images?: { src: string; alt: string }[];
+};
 
 export function Timeline() {
-  const data = [
+  const iconColors: Record<string, string> = {
+    HTML: "#E34F26",
+    CSS: "#1572B6",
+    JavaScript: "#F7DF1E",
+    React: "#61DAFB",
+    TypeScript: "#3178C6",
+    "Node.js": "#339933",
+    MySQL: "#4479A1",
+    "Next.js": "#FFFFFF",
+    "Tailwind CSS": "#06B6D4",
+    "Framer Motion": "#0055FF",
+    Docker: "#2496ED",
+    Redis: "#DC382D",
+    "Socket.io": "#FFFFFF",
+    Postman: "#FF6C37",
+    Vitest: "#6E9F18",
+    Git: "#F05032",
+    C: "#A8B9CC",
+    "C++": "#00599C",
+    Zustand: "#61DAFB",
+    Express: "#FFFFFF",
+  };
+
+  const getAnimation = (name: string) => {
+    switch (name) {
+      case "React":
+        return {
+          animate: { rotate: [0, 360] },
+          transition: { repeat: Infinity, duration: 6, ease: "linear" },
+        };
+      case "JavaScript":
+        return {
+          animate: { y: [0, -6, 0, 3, 0] },
+          transition: { repeat: Infinity, duration: 2.2 },
+        };
+      case "Node.js":
+        return {
+          animate: { scale: [1, 1.08, 1] },
+          transition: { repeat: Infinity, duration: 2.5 },
+        };
+      case "Tailwind CSS":
+        return {
+          animate: { rotate: [-5, 5, -5, 0] },
+          transition: { repeat: Infinity, duration: 3 },
+        };
+      default:
+        return {
+          animate: { y: [0, -4, 0, 4, 0] },
+          transition: { repeat: Infinity, duration: 3 },
+        };
+    }
+  };
+
+  const data: TimelineItem[] = [
     {
       title: "2021 - Present",
-      content: (
-        <div>
-          <p className="text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            Studying Electronics, Communication and Information Engineering
-          </p>
-          <div className="grid grid-cols-2 gap-4">
-            <Image
-              src="/ForTimeline/electronics.jpg"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-32 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src="/ForTimeline/programming2.jpg"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-32 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src="/ForTimeline/communication.jpg"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-32 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src="/ForTimeline/programming.jpg"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-32 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-          </div>
-        </div>
-      ),
+      description: "Studying Electronics, Communication and Information Engineering",
+      images: [
+        { src: "/ForTimeline/communication.jpg", alt: "Communication systems" },
+        { src: "/ForTimeline/electronics.jpg", alt: "Electronics components" },
+      ],
     },
     {
       title: "Early 2022",
-      content: (
-        <div>
-          <p className="text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            learned C programming.
-          </p>
-          <div className="mb-8">
-            <div className="flex gap-2 items-center text-neutral-300 text-xs md:text-sm">
-              ✅ C
-            </div>
-            <div className="flex gap-2 items-center text-neutral-300 text-xs md:text-sm">
-              ✅ C++
-            </div>
-          </div>
-        </div>
-      ),
+      description: "Learned C programming.",
+      skills: [
+        { name: "C", icon: <SiC /> },
+        { name: "C++", icon: <SiCplusplus /> },
+      ],
     },
     {
       title: "2023",
-      content: (
-        <div>
-          <p className="text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            Started Learning Web Development
-          </p>
-          <div className="mb-8">
-            <div className="flex gap-2 items-center text-neutral-300 text-xs md:text-sm">
-              ✅ HTML
-            </div>
-            <div className="flex gap-2 items-center text-neutral-300 text-xs md:text-sm">
-              ✅ CSS
-            </div>
-            <div className="flex gap-2 items-center text-neutral-300 text-xs md:text-sm">
-              ✅ JAVASCRIPT
-            </div>
-            <div className="flex gap-2 items-center text-neutral-300 text-xs md:text-sm">
-              ✅ GIT
-            </div>
-            <div className="flex gap-2 items-center text-neutral-300 text-xs md:text-sm">
-              ✅ NODE JS
-            </div>
-            <div className="flex gap-2 items-center text-neutral-300 text-xs md:text-sm">
-              ✅ MYSQL
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <Image
-              src="/ForTimeline/mysql.jpg"
-              alt="hero template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-32 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src="/ForTimeline/html.jpg"
-              alt="feature template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-32 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-          </div>
-        </div>
-      ),
+      description: "Started Learning Web Development",
+      skills: [
+        { name: "HTML", icon: <SiHtml5 /> },
+        { name: "CSS", icon: <SiCss3 /> },
+        { name: "JavaScript", icon: <SiJavascript /> },
+        { name: "Git", icon: <SiGit /> },
+        { name: "Node.js", icon: <SiNodedotjs /> },
+        { name: "MySQL", icon: <SiMysql /> },
+      ],
+      images: [
+        { src: "/ForTimeline/programming.jpg", alt: "Programming concepts" },
+        { src: "/ForTimeline/programming2.jpg", alt: "Programming at night" },
+      ],
     },
     {
       title: "2024",
-      content: (
-        <div>
-          <p className="text-neutral-200 text-xs md:text-sm font-normal mb-4">
-            Learned more about Web Development
-          </p>
-          <div className="mb-8">
-            <div className="flex gap-2 items-center text-neutral-300 text-xs md:text-sm">
-              ✅ REACT
-            </div>
-            <div className="flex gap-2 items-center text-neutral-300 text-xs md:text-sm">
-              ✅ TYPESCRIPT
-            </div>
-
-            <div className="flex gap-2 items-center text-neutral-300 text-xs md:text-sm">
-              ✅ FRAMER MOTION
-            </div>
-
-            <div className="flex gap-2 items-center text-neutral-300 text-xs md:text-sm">
-              ✅ EXPRESS JS
-            </div>
-            <div className="flex gap-2 items-center text-neutral-300 text-xs md:text-sm">
-              ✅ NEXT JS
-            </div>
-            <div className="flex gap-2 items-center text-neutral-300 text-xs md:text-sm">
-              ✅ TAILWIND CSS
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <Image
-              src="/ForTimeline/javascript.jpg"
-              alt="hero template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-32 md:h-[450px] w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src="/ForTimeline/types.jpg"
-              alt="feature template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-32 md:h-[450px] w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-          </div>
-        </div>
-      ),
+      description: "Learned more about Web Development",
+      skills: [
+        { name: "React", icon: <SiReact /> },
+        { name: "TypeScript", icon: <SiTypescript /> },
+        { name: "Framer Motion", icon: <SiFramer /> },
+        { name: "Express", icon: <SiExpress /> },
+        { name: "Next.js", icon: <SiNextdotjs /> },
+        { name: "Tailwind CSS", icon: <SiTailwindcss /> },
+      ],
     },
     {
       title: "2025",
-      content: (
-        <div>
-          <p className="text-neutral-200 text-xs md:text-sm font-normal mb-4">
-            Mastering the Stack
-          </p>
-          <div className="mb-8">
-            <div className="flex gap-2 items-center text-neutral-300 text-xs md:text-sm">
-              ✅ Socket.io
-            </div>
-            <div className="flex gap-2 items-center text-neutral-300 text-xs md:text-sm">
-              ✅ Zustand
-            </div>
-
-            <div className="flex gap-2 items-center text-neutral-300 text-xs md:text-sm">
-              ✅ Redis
-            </div>
-
-            <div className="flex gap-2 items-center text-neutral-300 text-xs md:text-sm">
-              ✅ Postman
-            </div>
-            <div className="flex gap-2 items-center text-neutral-300 text-xs md:text-sm">
-              ✅ Docker
-            </div>
-            <div className="flex gap-2 items-center text-neutral-300 text-xs md:text-sm">
-              ✅ Vitest
-            </div>
-          </div>
-        </div>
-      ),
+      description: "Mastering the Stack",
+      skills: [
+        { name: "Socket.io", icon: <SiSocketdotio /> },
+        { name: "Zustand", icon: <SiReact /> },
+        { name: "Redis", icon: <SiRedis /> },
+        { name: "Postman", icon: <SiPostman /> },
+        { name: "Docker", icon: <SiDocker /> },
+        { name: "Vitest", icon: <SiVitest /> },
+      ],
     },
   ];
+
+  const renderContent = (item: TimelineItem) => (
+    <div>
+      <p className="text-neutral-200 text-base md:text-lg font-medium mb-6">
+        {item.description}
+      </p>
+
+      {item.skills && (
+        <div className="mb-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4">
+          {item.skills.map((skill) => {
+            const { animate, transition } = getAnimation(skill.name);
+            const color = iconColors[skill.name] || "#FFFFFF";
+            return (
+              <motion.div
+                key={skill.name}
+                className="flex flex-col items-center gap-2 text-neutral-300 text-lg md:text-xl font-medium p-3 rounded-lg transition-transform hover:scale-110"
+                whileHover={{ scale: 1.15 }}
+              >
+                <motion.div className="text-3xl md:text-4xl" animate={animate} transition={transition}>
+                  {React.cloneElement(skill.icon, {
+                    color,
+                    size: 42,
+                    style: { filter: "drop-shadow(0 0 8px rgba(255,255,255,0.15))" },
+                  })}
+                </motion.div>
+                <span>{skill.name}</span>
+              </motion.div>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+
+  const timelineData = data.map((item) => ({
+    title: item.title,
+    content: renderContent(item),
+  }));
+
   return (
     <div className="w-full overflow-y-hidden" id="journey">
-      <TimelineComponent data={data} />
+      <TimelineComponent data={timelineData} />
     </div>
   );
 }

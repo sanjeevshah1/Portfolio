@@ -1,9 +1,16 @@
-'use client';
-import React,{useState, useEffect, useRef} from "react";
+"use client";
+import React, { useState, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import SocialCard from "./SocialCard";
-const DotLottieReact = dynamic(() => import( '@lottiefiles/dotlottie-react').then((component) => component.DotLottieReact), { ssr: false } );
+import Image from "next/image";
 
+const DotLottieReact = dynamic(
+  () =>
+    import("@lottiefiles/dotlottie-react").then(
+      (component) => component.DotLottieReact
+    ),
+  { ssr: false }
+);
 
 const SocialLinks = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -17,7 +24,7 @@ const SocialLinks = () => {
           observer.disconnect(); // Stop observing after it's visible
         }
       },
-      { threshold: 0} // Trigger when 2% of the component is visible
+      { threshold: 0 } // Trigger when 2% of the component is visible
     );
 
     if (observerRef.current) {
@@ -27,20 +34,20 @@ const SocialLinks = () => {
     return () => observer.disconnect();
   }, []);
   return (
-    <div 
-      id="connect" 
+    <div
+      id="connect"
       className="relative min-h-screen w-full flex items-center justify-center 
                  overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black 
                  py-16 px-4 sm:px-6 lg:px-8"
     >
       {/* Animated background gradients */}
       <div className="absolute inset-0 pointer-events-none">
-        <div 
+        <div
           className="absolute top-0 right-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] 
                      bg-purple-900/20 rounded-full mix-blend-overlay 
                      blur-3xl animate-pulse"
         />
-        <div 
+        <div
           className="absolute bottom-0 left-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] 
                      bg-pink-900/20 rounded-full mix-blend-overlay 
                      blur-3xl animate-pulse delay-700"
@@ -48,17 +55,20 @@ const SocialLinks = () => {
       </div>
 
       {/* Main content container */}
-      <div 
+      <div
         className="relative w-full max-w-7xl mx-auto bg-gray-800/50 
                    rounded-3xl backdrop-blur-lg border border-gray-700/50 
                    shadow-2xl overflow-hidden"
       >
         {/* Hero section with animation */}
-        <div 
+        <div
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 p-8 md:p-12 
                      items-center justify-center"
         >
-          <div ref={observerRef} className="md:flex w-screen md:w-auto justify-center items-center">
+          <div
+            ref={observerRef}
+            className="md:flex w-screen md:w-auto justify-center items-center"
+          >
             {isVisible && (
               <DotLottieReact 
                 src="https://lottie.host/154357bd-5c36-4a36-8d8e-855195cba2a5/jYPO9xm53P.lottie"
@@ -72,7 +82,7 @@ const SocialLinks = () => {
 
           {/* Text Content */}
           <div className="text-center lg:text-left space-y-6">
-            <h1 
+            <h1
               className="text-4xl md:text-5xl lg:text-6xl font-josefinSlab 
                          text-transparent bg-clip-text 
                          bg-gradient-to-r from-purple-500 to-pink-500 
@@ -81,25 +91,25 @@ const SocialLinks = () => {
             >
               Let&apos;s Connect!
             </h1>
-            <p 
+            <p
               className="text-xl  text-gray-300 
                          max-w-2xl mx-auto lg:mx-0  
                          leading-relaxed"
             >
-              Join me on social media to stay updated with my latest projects, 
-              thoughts, and adventures. Let&apos;s build connections and share experiences!
+              Join me on social media to stay updated with my latest projects,
+              thoughts, and adventures. Let&apos;s build connections and share
+              experiences!
             </p>
           </div>
-
         </div>
 
         {/* Social links grid */}
-        <div 
+        <div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 
                      p-8 md:p-12 pt-0"
         >
           {/* Social Cards with Dynamic Icons */}
-          <SocialCard 
+          <SocialCard
             name="Facebook"
             url="https://www.facebook.com/Sanjeev073.sah/"
             description="Connect with me for daily updates and behind-the-scenes content"
@@ -114,7 +124,7 @@ const SocialLinks = () => {
                         transition-colors gap-2 group-hover:scale-105"
           />
 
-          <SocialCard 
+          <SocialCard
             name="Instagram"
             url="https://www.instagram.com/sanjeev_shah__/"
             description="Follow for photos, stories, and visual inspirations"
@@ -129,7 +139,7 @@ const SocialLinks = () => {
                         rounded-lg font-medium transition-colors gap-2 group-hover:scale-105"
           />
 
-          <SocialCard 
+          <SocialCard
             name="LinkedIn"
             url="https://np.linkedin.com/in/sanjeev-sah-b354b9210"
             description="Connect professionally and explore my career journey"
@@ -144,7 +154,7 @@ const SocialLinks = () => {
                         transition-colors gap-2 group-hover:scale-105"
           />
 
-          <SocialCard 
+          <SocialCard
             name="GitHub"
             url="https://github.com/sanjeevshah1"
             description="Explore my open source projects and contributions"
